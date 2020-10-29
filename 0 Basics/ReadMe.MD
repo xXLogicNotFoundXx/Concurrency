@@ -42,3 +42,11 @@ Example : boolean tryLock()
       }
   ```
  
+## Synchronized Methods
+When a thread invokes a synchronized method, it automatically acquires the intrinsic lock for that method's **object** and releases it when the method returns. The lock release occurs even if the return was caused by an uncaught exception.\
+This is useful when more than one threads have an acess to same object.\
+Constructors can not be synchronized.\
+READ : https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
+
+## Intrinsic Locks and Synchronization
+https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html
