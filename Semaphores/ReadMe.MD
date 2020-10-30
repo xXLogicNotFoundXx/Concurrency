@@ -1,0 +1,20 @@
+
+### Semaphore
+A counting semaphore. Conceptually, a semaphore maintains a set of permits. Each acquire() blocks if necessary until a permit is available, and then takes it.\
+Each release() adds a permit, potentially releasing a blocking acquirer. However, no actual permit objects are used; the Semaphore just keeps a count of the number available and acts accordingly.\
+Semaphores are often used to restrict the number of threads than can access some (physical or logical) resource. 
+```
+Semaphore(int num)  // with this starvation of a thread could happen 
+Semaphore(int num, boolean how)
+```
+Here, num specifies the initial permit count. Thus, it specifies the number of threads that can access a shared resource at any one time.\
+If it is one, then only one thread can access the resource at any one time. By default, all waiting threads are granted a permit in an undefined order.\
+By setting how to true, you can ensure that waiting threads are granted a permit in the order in which they requested access.
+
+**Semaphore(0)**\
+Your semaphore initially has 0 permits, in which case permits must be released before they may be acquired.
+
+"Semaphore is a bowl of marbles"
+If you need a marble, and there are none, you wait.\
+You wait until there is one marble and then you take it. If you release(), you will add one marble to the bowl (from thin air).\
+If you release(100), you will add 100 marbles to the bowl (from thin air).
