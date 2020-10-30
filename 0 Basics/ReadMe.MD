@@ -2,6 +2,16 @@
 When the result of multiple threads executing a critical section may differ depending on the sequence in which the threads execute, the critical section is said to contain a race condition.\
 The term race condition stems from the metaphor that the threads are racing through the critical section, and that the result of that race impacts the result of executing the critical section.
 
+### Deadlock
+Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.
+
+### Starvation
+Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
+
+### Livelock
+A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work.
+
+
 ## Mutex and Locks
 Mutex and Locks are same (Mutex is short form of **Mut**ual **Ex**clusion) - https://en.wikipedia.org/wiki/Lock_(computer_science)
 
@@ -95,3 +105,4 @@ public class MsLunch {
 ```
 ### Reentrant Synchronization
 A thread can acquire a lock that it already owns. Allowing a thread to acquire the same lock more than once enables reentrant synchronization. This describes a situation where synchronized code, directly or indirectly, invokes a method that also contains synchronized code, and both sets of code use the same lock. Without reentrant synchronization, synchronized code would have to take many additional precautions to avoid having a thread cause itself to block.
+
