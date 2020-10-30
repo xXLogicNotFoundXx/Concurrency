@@ -69,7 +69,7 @@ public class SynchronizedCounter {
     }
 }
 ```
-## Intrinsic Locks and Synchronization Ststements 
+## Intrinsic Locks (monitor lock) and Synchronization Ststements 
 * Every object has an intrinsic lock or monitor lock associated with it. You can acquire lock on any object with synchronized(object). 
 https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html
 ```
