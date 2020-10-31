@@ -4,12 +4,18 @@ A counting semaphore. Conceptually, a semaphore maintains a set of permits. Each
 Each release() adds a permit, potentially releasing a blocking acquirer. However, no actual permit objects are used; the Semaphore just keeps a count of the number available and acts accordingly.\
 Semaphores are often used to restrict the number of threads than can access some (physical or logical) resource. 
 ```
-Semaphore(int num)  // with this starvation of a thread could happen 
-Semaphore(int num, boolean how) // By setting how to true, you can ensure that waiting threads are granted a permit in the order in which they requested access.
-Semaphore(0) // Your semaphore initially has 0 permits, in which case permits must be released before they may be acquired.
+// All waiting threads are granted a permit in an undefined order. With this starvation of a thread could happen 
+Semaphore(int num)  
+
+
+// By setting how to true, you can ensure that waiting threads are granted a permit in the order in which they requested access.
+Semaphore(int num, boolean how) 
+
+// Your semaphore initially has 0 permits, in which case permits must be released before they may be acquired.
+new Semaphore(0); 
 ```
 Here, num specifies the initial permit count. Thus, it specifies the number of threads that can access a shared resource at any one time.\
-If it is one, then only one thread can access the resource at any one time. By default (Semaphore(int num)), all waiting threads are granted a permit in an undefined order.\
+If it is one, then only one thread can access the resource at any one time. 
 
 
 "Semaphore is a bowl of marbles"
