@@ -1,7 +1,7 @@
 https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Condition.html
 
 java.util.concurrent.locks\
-Interface Condition\
+Interface Condition
 
 
 ## public interface Condition
