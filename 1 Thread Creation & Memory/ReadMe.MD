@@ -16,3 +16,4 @@ volatile makes sure the write flushes the values in local copy to the main memor
 However, if you write the **synchronize** block java gaurantees the those values are flushed to main memroy and visible to other threads.
 
 ![](https://github.com/xXLogicNotFoundXx/Concurrency/blob/main/1%20Thread%20Creation%20%26%20Memory/img/synchronize.png)
+ 
