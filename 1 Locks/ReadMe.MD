@@ -24,7 +24,10 @@ With this increased flexibility comes additional responsibility. The absence of 
      } finally {
          l.unlock();
      }
-  
+```  
+
+We can use Lock if you want to do something else if we can't acquire a Lock. 
+```
 Example : boolean tryLock() 
 
       Lock lock = ...;
@@ -37,7 +40,7 @@ Example : boolean tryLock()
       } else {
           // perform alternative actions
       }
-  ```
+```
 
 ### Reentrant Lock
 A thread can acquire a lock that it already owns. Allowing a thread to acquire the same lock more than once enables reentrant synchronization. This describes a situation where synchronized code, directly or indirectly, invokes a method that also contains synchronized code, and both sets of code use the same lock. Without reentrant synchronization, synchronized code would have to take many additional precautions to avoid having a thread cause itself to block.
