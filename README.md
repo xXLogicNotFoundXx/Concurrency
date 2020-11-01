@@ -2,7 +2,6 @@
 
 ## Good Read/Watch
 * https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
-* ConcurrentHashMap and BlockingQueues : https://www.youtube.com/watch?v=Ur3hjgbpVXQ
 
 ## Race Condition
 When the result of multiple threads executing a critical section may differ depending on the sequence in which the threads execute, the critical section is said to contain a race condition.\
