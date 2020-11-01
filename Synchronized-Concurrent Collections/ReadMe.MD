@@ -46,6 +46,8 @@ The returned map will be serializable if the specified map is serializable.
 * In a ConcurrentHashMap, for example, different threads can acquire locks on different segment, so multiple threads can access the Map at the same time (a.k.a. concurrent access). Think of it as map is divided into parts and each part has its own lock. 
 * Concurrent collections are much more performant than synchronized collections, due to the inherent advantages of concurrent thread access.
 
+READ : https://docs.oracle.com/javase/tutorial/essential/concurrency/collections.html
+
 #### Some Inteface/Classes 
 * BlockingQueue defines a first-in-first-out data structure that blocks or times out when you attempt to add to a full queue, or retrieve from an empty queue.
 * ConcurrentMap is a subinterface of java.util.Map that defines useful atomic operations.
