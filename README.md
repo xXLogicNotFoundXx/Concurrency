@@ -1,5 +1,8 @@
 # Concurrency
 
+## Good Read 
+https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
+
 ## Race Condition
 When the result of multiple threads executing a critical section may differ depending on the sequence in which the threads execute, the critical section is said to contain a race condition.\
 The term race condition stems from the metaphor that the threads are racing through the critical section, and that the result of that race impacts the result of executing the critical section.
