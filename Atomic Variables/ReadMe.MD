@@ -12,10 +12,10 @@ READ :
 * That is, a set has a **happens-before relationship with any subsequent get on the same variable**. (Almost like locks-> atomic arithmetic -> unlock)
 * The atomic compareAndSet method also has these memory consistency features, as do the simple **atomic arithmetic** methods that apply to integer atomic variables.
 
-## Some Classes 
+#### Some Classes 
 **AtomicBoolean	AtomicInteger	AtomicIntegerArray	AtomicLong	AtomicLongArray**
 
-## Happens-Before
+#### Happens-Before
 * Language Specification defines the happens-before relation on memory operations such as reads and writes of shared variables. 
 * The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation happens-before the read operation. 
 * The synchronized and volatile constructs can form happens-before relationships.
