@@ -55,7 +55,7 @@ The returned map will be serializable if the specified map is serializable.
 #### CopyOnWriteArrayList
 * Similarly, CopyOnWriteArrayList allows multiple reader threads to read without synchronization and when a write happens it copies the whole ArrayList and swaps with a newer one.
 
-
+ConcurrentHashMap and BlockingQueues : https://www.youtube.com/watch?v=Ur3hjgbpVXQ
 READ : https://docs.oracle.com/javase/tutorial/essential/concurrency/collections.html
 
 #### Some Intefaces/Classes 
