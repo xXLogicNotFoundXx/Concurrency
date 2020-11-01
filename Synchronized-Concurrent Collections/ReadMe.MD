@@ -42,7 +42,7 @@ Failure to follow this advice may result in non-deterministic behavior.\
 The returned map will be serializable if the specified map is serializable.
 
 ## Concurrent Collections
-**We are not doing any synchronization here. The purpose is to make write operations atomic an does happens-before relationship.**
+**We are not doing any synchronization here. The purpose is to make write operations atomic and adheres to happens-before relationship.**
 
 * The differences between them come in performance, scalability and how they achieve thread-safety.
 * Concurrent collections are much more performant than synchronized collections, due to the inherent advantages of concurrent thread access.
