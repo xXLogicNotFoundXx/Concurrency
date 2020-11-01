@@ -39,11 +39,4 @@ class AtomicCounter {
         return c.get();
     }
 }
-/*
-* AtomicBoolean	        A boolean value that may be updated atomically.
-* AtomicInteger	        An int value that may be updated atomically.
-* AtomicIntegerArray	  An int array in which elements may be updated atomically.
-* AtomicLong	          A long value that may be updated atomically.
-* etc ... 
-*/
 ```
