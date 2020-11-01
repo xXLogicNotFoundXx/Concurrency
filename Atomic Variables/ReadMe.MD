@@ -2,6 +2,8 @@
 An operation during which a processor can simultaneously read a location and write it in the same bus operation. 
 This prevents any other processor or I/O device from writing or reading memory until the operation is complete.
 
+READ : https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html
+
 ## Atomic Variables
 * The java.util.concurrent.atomic package defines classes that support atomic operations on single variables. 
 * All classes have get and set methods that work like reads and writes on volatile variables. 
