@@ -42,9 +42,19 @@ Failure to follow this advice may result in non-deterministic behavior.\
 The returned map will be serializable if the specified map is serializable.
 
 ## Concurrent Collections
-* Concurrent collections (e.g. ConcurrentHashMap), achieve thread-safety by dividing their data into segments. 
-* In a ConcurrentHashMap, for example, different threads can acquire locks on different segment, so multiple threads can access the Map at the same time (a.k.a. concurrent access). Think of it as map is divided into parts and each part has its own lock. 
+**We are not doing any synchronization here. The purpose is to make write operations atomic an does happens-before relationship.**
+
+* The differences between them come in performance, scalability and how they achieve thread-safety.
 * Concurrent collections are much more performant than synchronized collections, due to the inherent advantages of concurrent thread access.
+
+#### ConcurrentHashMap
+* The default concurrency-level of ConcurrentHashMap is 16.
+* The ConcurrentHashMap divides the whole map into several segments and locks only the relevant segments, which allows multiple threads to access other segments of the same ConcurrentHashMap without locking. (a.k.a. concurrent access)
+* In ConcurrentHashMap, at a time any number of threads can perform retrieval operation but for updation in the object, the thread must lock the particular segment in which the thread wants to operate. This type of locking mechanism is known as Segment locking or bucket locking. Hence at a time, 16 update operations can be performed by threads.
+
+#### CopyOnWriteArrayList
+* Similarly, CopyOnWriteArrayList allows multiple reader threads to read without synchronization and when a write happens it copies the whole ArrayList and swaps with a newer one.
+
 
 READ : https://docs.oracle.com/javase/tutorial/essential/concurrency/collections.html
 
