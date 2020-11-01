@@ -1,7 +1,7 @@
 # Collections 
 
 ## Synchronized Collections
-** Collections class provides static synchronization wrappers that provides synchronized (thread-safe) collections.
+**Collections class provides static synchronization wrappers that provides synchronized (thread-safe) collections.**
 
 Read : https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedCollection-java.util.Collection-
 
@@ -15,6 +15,30 @@ Read : https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sync
 * static <T> SortedSet<T>	**synchronizedSortedSet(SortedSet<T> s)** 
 
 So, add(), addAl() etc methods are atomic and thread safe. Only one lock is associated with returned collection. 
-If you want to iterate over the 
+If you want to iterate over the collection then you are supposed to lock that collection object.
+
+It is imperative that the user manually synchronize on the returned map when iterating over any of its collection views:
+```
+  Map m = Collections.synchronizedMap(new HashMap());
+      ...
+  Set s = m.keySet();  // Needn't be in synchronized block
+      ...
+  synchronized (m) {  // Synchronizing on m, not s!
+      Iterator i = s.iterator(); // Must be in synchronized block
+      while (i.hasNext())
+          foo(i.next());
+  }
+```
+Failure to follow this advice may result in non-deterministic behavior.\
+The returned map will be serializable if the specified map is serializable.
 
 ## Concurrent Collections
+
+* BlockingQueue defines a first-in-first-out data structure that blocks or times out when you attempt to add to a full queue, or retrieve from an empty queue.
+* ConcurrentMap is a subinterface of java.util.Map that defines useful atomic operations.
+* The standard general-purpose implementation of ConcurrentMap is ConcurrentHashMap, which is a concurrent analog of HashMap.
+* ConcurrentNavigableMap is a subinterface of ConcurrentMap that supports approximate matches. 
+* The standard general-purpose implementation of ConcurrentNavigableMap is ConcurrentSkipListMap, which is a concurrent analog of TreeMap.
+
+All of these collections help avoid Memory Consistency Errors by defining a happens-before relationship between an operation that adds an object to the collection with subsequent operations that access or remove that object.
+
