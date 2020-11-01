@@ -14,12 +14,6 @@ READ :
 
 #### Some Classes 
 **AtomicBoolean	AtomicInteger	AtomicIntegerArray	AtomicLong	AtomicLongArray**
-
-#### Happens-Before
-* Language Specification defines the happens-before relation on memory operations such as reads and writes of shared variables. 
-* The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation happens-before the read operation. 
-* The synchronized and volatile constructs can form happens-before relationships.
-* Read: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
  
 So, instead of having an **int** variable and having **synchronised** methods to get and set we can just use atomic variables. 
 ```
