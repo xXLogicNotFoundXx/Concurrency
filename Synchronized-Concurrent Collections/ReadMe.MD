@@ -1,7 +1,8 @@
 # Collections 
 
 ## Synchronized Collections
-**Collections class provides static synchronization wrappers that provides synchronized (thread-safe) collections.**
+* **Collections class provides static synchronization wrappers that provides synchronized (thread-safe) collections.**
+* Synchronized Collections are not optimized for concurrent access. Only One thread can access sunchronized collection at a time.
 
 Read : https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedCollection-java.util.Collection-
 
@@ -41,6 +42,10 @@ Failure to follow this advice may result in non-deterministic behavior.\
 The returned map will be serializable if the specified map is serializable.
 
 ## Concurrent Collections
+* Concurrent collections (e.g. ConcurrentHashMap), achieve thread-safety by dividing their data into segments. 
+* In a ConcurrentHashMap, for example, different threads can acquire locks on different segment, so multiple threads can access the Map at the same time (a.k.a. concurrent access). Think of it as map is divided into parts and each part has its own lock. 
+* Concurrent collections are much more performant than synchronized collections, due to the inherent advantages of concurrent thread access.
+
 
 * BlockingQueue defines a first-in-first-out data structure that blocks or times out when you attempt to add to a full queue, or retrieve from an empty queue.
 * ConcurrentMap is a subinterface of java.util.Map that defines useful atomic operations.
