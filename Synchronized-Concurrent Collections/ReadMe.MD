@@ -19,6 +19,14 @@ If you want to iterate over the collection then you are supposed to lock that co
 
 It is imperative that the user manually synchronize on the returned map when iterating over any of its collection views:
 ```
+  List list = Collections.synchronizedList(new ArrayList());
+      ...
+  synchronized (list) {
+      Iterator i = list.iterator(); // Must be in synchronized block
+      while (i.hasNext())
+          foo(i.next());
+  }
+  *******************************
   Map m = Collections.synchronizedMap(new HashMap());
       ...
   Set s = m.keySet();  // Needn't be in synchronized block
