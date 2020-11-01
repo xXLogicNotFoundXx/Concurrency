@@ -6,6 +6,7 @@
 
 Read : https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedCollection-java.util.Collection-
 
+#### Some Synchronized Collections
 * **Collections.synchronizedCollection(Collection<T> c)** - Returns a synchronized (thread-safe) collection backed by the specified collection. 
 * **Collections.synchronizedList(List<T> list)** - Returns a synchronized (thread-safe) list backed by the specified list.
 * **Collections.synchronizedMap(Map<K,V> m)** - Returns a synchronized (thread-safe) list backed by the specified map.
@@ -47,12 +48,12 @@ The returned map will be serializable if the specified map is serializable.
 
 READ : https://docs.oracle.com/javase/tutorial/essential/concurrency/collections.html
 
-#### Some Inteface/Classes 
-* BlockingQueue defines a first-in-first-out data structure that blocks or times out when you attempt to add to a full queue, or retrieve from an empty queue.
-* ConcurrentMap is a subinterface of java.util.Map that defines useful atomic operations.
-* The standard general-purpose implementation of ConcurrentMap is ConcurrentHashMap, which is a concurrent analog of HashMap.
-* ConcurrentNavigableMap is a subinterface of ConcurrentMap that supports approximate matches. 
-* The standard general-purpose implementation of ConcurrentNavigableMap is ConcurrentSkipListMap, which is a concurrent analog of TreeMap.
+#### Some Intefaces/Classes 
+* **BlockingQueue** defines a first-in-first-out data structure that blocks or times out when you attempt to add to a full queue, or retrieve from an empty queue.
+* **ConcurrentMap** is a subinterface of java.util.Map that defines useful atomic operations.
+* The standard general-purpose implementation of **ConcurrentMap is ConcurrentHashMap**, which is a concurrent analog of **HashMap**.
+* **ConcurrentNavigableMap** is a subinterface of ConcurrentMap that supports approximate matches. 
+* The standard general-purpose implementation of **ConcurrentNavigableMap is ConcurrentSkipListMap**, which is a concurrent analog of **TreeMap**.
 
 All of these collections help avoid Memory Consistency Errors by defining a happens-before relationship between an operation that adds an object to the collection with subsequent operations that access or remove that object.
 
