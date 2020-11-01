@@ -2,13 +2,18 @@
 An operation during which a processor can simultaneously read a location and write it in the same bus operation. 
 This prevents any other processor or I/O device from writing or reading memory until the operation is complete.
 
-READ : https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html
+READ : 
+* https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html
+* https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html
 
 ## Atomic Variables
 * The java.util.concurrent.atomic package defines classes that support atomic operations on single variables. 
 * All classes have get and set methods that work like reads and writes on volatile variables. 
 * That is, a set has a **happens-before relationship with any subsequent get on the same variable**. (Almost like locks-> atomic arithmetic -> unlock)
 * The atomic compareAndSet method also has these memory consistency features, as do the simple **atomic arithmetic** methods that apply to integer atomic variables.
+
+## Some Classes 
+**AtomicBoolean	AtomicInteger	AtomicIntegerArray	AtomicLong	AtomicLongArray**
 
 ## Happens-Before
 * Language Specification defines the happens-before relation on memory operations such as reads and writes of shared variables. 
