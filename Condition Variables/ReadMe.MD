@@ -8,6 +8,8 @@ A Condition instance is intrinsically bound to a lock. To obtain a Condition ins
 
 As an example, suppose we have a bounded buffer which supports put and take methods. If a take is attempted on an empty buffer, then the thread will block until an item becomes available; if a put is attempted on a full buffer, then the thread will block until a space becomes available. We would like to keep waiting put threads and take threads in separate wait-sets so that we can use the optimization of only notifying a single thread at a time when items or spaces become available in the buffer. This can be achieved using two Condition instances.
 ```
+// This is ArrayBlockingQueue OR 1Producer 1Consumer problem. 
+
  class BoundedBuffer {
    final Lock lock = new ReentrantLock();
    final Condition notFull  = lock.newCondition(); 
@@ -22,7 +24,8 @@ As an example, suppose we have a bounded buffer which supports put and take meth
        while (count == items.length)
          notFull.await();
        items[putptr] = x;
-       if (++putptr == items.length) putptr = 0;
+       if (++putptr == items.length) 
+        putptr = 0;
        ++count;
        notEmpty.signal();
      } finally {
