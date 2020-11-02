@@ -12,3 +12,13 @@ A more extreme example is that the reading thread's code is optimised with the a
 volatile makes sure the the changes are visible to other threads. ( I think of it as write flushes the values in local copy(regirster,or cache) to the main memory)\
 However, if you write the **synchronize** block java gaurantees the those values are flushed to main memroy and visible to other threads too. So you dont have to worry about the variables in synchronization blocks. 
 
+Volitile adhere to happens-before relations.(No Locks are involved) 
+
+Dont confuse volatile operations are atomic though. The effect of the volatile keyword is approximately that each individual read or write operation on that variable is atomic.
+
+Notably, however, an operation that requires more than one read/write -- such as i++, which is equivalent to i = i + 1, which does one read and one write -- is not atomic, since another thread may write to i between the read and the write.
+
+The Atomic classes, like AtomicInteger and AtomicReference, provide a wider variety of operations atomically, specifically including increment for AtomicInteger.
+
+
+
