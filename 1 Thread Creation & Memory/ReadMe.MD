@@ -20,5 +20,7 @@ Notably, however, an operation that requires more than one read/write -- such as
 
 The Atomic classes, like AtomicInteger and AtomicReference, provide a wider variety of operations atomically, specifically including increment for AtomicInteger.
 
+So volatile solves the visibility problem not atomicity. 
+
 
 
