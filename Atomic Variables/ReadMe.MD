@@ -34,3 +34,7 @@ class AtomicCounter {
     }
 }
 ```
+
+**You may think why not just volatile varibles. Well Volatile and Atomic are two different concepts. Volatile ensures, that a certain, expected (memory) state is true across different threads, while Atomics ensure that operation on variables are performed atomically.**
+
+Arithmetic operations on volatile are not atomic operations. 
