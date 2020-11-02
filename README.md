@@ -20,7 +20,7 @@ Starvation describes a situation where a thread is unable to gain regular access
 ### Livelock
 A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work.
 
-## Happens-Before Relation (volatile [no operations on volatile vars though], atomic variables [including arithmetic operations like increament], Concurrent Collections)
+## Happens-Before Relation (volatile, atomic variables, Concurrent Collections) (Changes made to var is guaranteed to be visible to other thread) 
 * Java defines the happens-before relation on memory operations such as reads and writes of shared variables. 
 * The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation happens-before the read operation. 
 * The synchronized and volatile constructs can form happens-before relationships.
