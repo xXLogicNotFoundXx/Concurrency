@@ -23,5 +23,23 @@ The Atomic classes, like AtomicInteger and AtomicReference, provide a wider vari
 
 So volatile solves the visibility problem not atomicity. 
 
+## Thread Class 
+```
+public class Thread extends Object implements Runnable {
+  ...
+}
 
+Methods inherited from class java.lang.Object
+equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait
+```
+## Thread.sleep()  [static method]
+* This doesnt unlock any aquired locks. You should use wait() instead.
+* While sleeping Parent thread may interrupt the thread so sleep() can throw InterruptedException. Always use try catch for that. 
+```
+catch (InterruptedException e) { 
+  ...
+}
+```
 
+## thread.wait()
+* Unclocks the aquired lock. sleep() can throw InterruptedException.
