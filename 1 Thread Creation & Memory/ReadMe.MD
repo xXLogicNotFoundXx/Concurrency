@@ -1,19 +1,14 @@
 
-https://www.youtube.com/watch?v=LCSqZyjBwWA&list=RDCMUCkiRZdcuNF7aiT4sQ9MJt-Q&index=2
+* Every time thread is created 'thread stack' contains the local variable like int,long etc. 
+* Anytime you create an object it is created in heap and reference of that object is stored in treadstack. 
 
-Every time thread is created thread stack contains the local variable. Anytime you create an object it is created in heap and reference of that object is stored in treadstack. 
+Each thread can be on a different core with its own private registers which Java can use to hold values of variables, unless you force access to coherent shared memory. This means that one thread can write to a value storing in a register, and this value is not visible to another thread for some time, like the duration of a loop or whole function. (milli-seconds is not uncommon)
 
-![](https://github.com/xXLogicNotFoundXx/Concurrency/blob/main/1%20Thread%20Creation%20%26%20Memory/img/ThreadMem.png)
+A more extreme example is that the reading thread's code is optimised with the assumption that since it never changes the value, it doesn't need to read it from memory. In this case the optimised code never sees the change performed by another thread.
 
-This is more like this is how the actual work inside. 
-
-![](https://github.com/xXLogicNotFoundXx/Concurrency/blob/main/1%20Thread%20Creation%20%26%20Memory/img/ThreadMem1.png)
 
 ## volatile
-![](https://github.com/xXLogicNotFoundXx/Concurrency/blob/main/1%20Thread%20Creation%20%26%20Memory/img/volatile.png)
 
-volatile makes sure the write flushes the values in local copy to the main memory and then they are visible to other threads.\
-However, if you write the **synchronize** block java gaurantees the those values are flushed to main memroy and visible to other threads.
+volatile makes sure the the changes are visible to other threads. ( I think of it as write flushes the values in local copy(regirster,or cache) to the main memory)\
+However, if you write the **synchronize** block java gaurantees the those values are flushed to main memroy and visible to other threads too. So you dont have to worry about the variables in synchronization blocks. 
 
-![](https://github.com/xXLogicNotFoundXx/Concurrency/blob/main/1%20Thread%20Creation%20%26%20Memory/img/synchronize.png)
- 
