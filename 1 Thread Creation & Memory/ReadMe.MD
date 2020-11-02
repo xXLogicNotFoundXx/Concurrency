@@ -17,7 +17,7 @@ Volitile adhere to happens-before relations.(No Locks are involved)
 
 Dont confuse volatile operations are atomic though. The effect of the volatile keyword is approximately that each individual read or write operation on that variable is atomic.
 
-Notably, however, an operation that requires more than one read/write -- such as i++, which is equivalent to i = i + 1, which does one read and one write -- is not atomic, since another thread may write to i between the read and the write.
+Notably, however, an operation that requires more than one read/write -- such as i++, which is equivalent to i = i + 1, which does one read and one write -- is not atomic, **since another thread may write to i between the read and the write.**
 
 The Atomic classes, like AtomicInteger and AtomicReference, provide a wider variety of operations atomically, specifically including increment for AtomicInteger.
 
