@@ -2,6 +2,7 @@
 * Every time thread is created 'thread stack' contains the local variable like int,long etc. 
 * Anytime you create an object it is created in heap and reference of that object is stored in treadstack. 
 
+## Basic problem of Mememory visibility ( before lock, semaphores etc)
 Each thread can be on a different core with its own private registers which Java can use to hold values of variables, unless you force access to coherent shared memory. This means that one thread can write to a value storing in a register, and this value is not visible to another thread for some time, like the duration of a loop or whole function. (milli-seconds is not uncommon)
 
 A more extreme example is that the reading thread's code is optimised with the assumption that since it never changes the value, it doesn't need to read it from memory. In this case the optimised code never sees the change performed by another thread.
