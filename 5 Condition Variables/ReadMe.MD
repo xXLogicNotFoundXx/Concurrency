@@ -60,3 +60,5 @@ Except where noted, passing a null value for any parameter will result in a Null
 ## Implementation Considerations
 When waiting upon a Condition, a "spurious wakeup" is permitted to occur, in general, as a concession to the underlying platform semantics. This has little practical impact on most application programs as a **Condition should always be waited upon in a loop,** testing the state predicate that is being waited for. An implementation is free to remove the possibility of spurious wakeups but it is recommended that applications programmers always assume that they can occur and so always wait in a loop.
 
+#### BTW technically you can lock Condition object but never do that. Condition object has specific purpose dont use them as a lock object. 
+
