@@ -8,8 +8,8 @@ public class BlockingQueue<T> {
     private Queue<T> queue = new LinkedList<T>();
     private int capacity;
     private Lock lock = new ReentrantLock();
-    private Condition notFull = lock.newCondition();
-    private Condition notEmpty = lock.newCondition();
+    private Condition full = lock.newCondition();
+    private Condition empty = lock.newCondition();
 
     public BlockingQueue(int capacity) {
         this.capacity = capacity;
@@ -19,10 +19,10 @@ public class BlockingQueue<T> {
         lock.lock();
         try {
             while (queue.size() == capacity) {
-                notFull.await();
+                full.await();
             }
             queue.add(element);
-            notEmpty.signal();
+            empty.signal();
         } finally {
             lock.unlock();
         }
@@ -32,10 +32,10 @@ public class BlockingQueue<T> {
         lock.lock();
         try {
             while (queue.isEmpty()) {
-                notEmpty.await();
+                empty.await();
             }
             T item = queue.remove();
-            notFull.signal();
+            full.signal();
             return item;
         } finally {
             lock.unlock();
