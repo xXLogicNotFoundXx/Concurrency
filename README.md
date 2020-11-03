@@ -26,3 +26,9 @@ A thread often acts in response to the action of another thread. If the other th
 * The synchronized and volatile constructs can form happens-before relationships.
 * A write to a volatile field happens-before every subsequent read of that same field. Writes and reads of volatile fields have similar memory consistency effects as entering and exiting monitors, but do not entail mutual exclusion locking.
 * Read: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
+
+
+
+# TODO : java.util.concurrent.ExecutorService, Thread Pools
+http://tutorials.jenkov.com/java-concurrency/thread-pools.html
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
