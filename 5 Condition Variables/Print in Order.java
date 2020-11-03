@@ -25,8 +25,9 @@ Explanation: The input [1,3,2] means thread A calls first(), thread B calls thir
 
 class Foo {
     final Lock lock = new ReentrantLock();
-    final Condition condQueue  = lock.newCondition(); 
-    int count=1;
+    final Condition cond2  = lock.newCondition(); 
+    final Condition cond3  = lock.newCondition(); 
+    volatile int count=1;
     
     public Foo() {
         
@@ -37,7 +38,7 @@ class Foo {
         try {
             printFirst.run(); // printFirst.run() outputs "first". Do not change or remove this line.
             count++;
-            condQueue.signalAll();
+            cond2.signal();
         } finally {
             lock.unlock();
         }
@@ -46,13 +47,14 @@ class Foo {
     public void second(Runnable printSecond) throws InterruptedException {
         lock.lock();
         try {
-            while(count<2){
-                condQueue.await();
+            while(count!=2){
+                // waiting on the condition backed by same lock 
+                cond2.await(); 
             }
 
             printSecond.run(); // printSecond.run() outputs "second". Do not change or remove this line.
             count++;
-            condQueue.signalAll();
+            cond3.signal();
         } finally {
             lock.unlock();
         }
@@ -61,8 +63,8 @@ class Foo {
     public synchronized void third(Runnable printThird) throws InterruptedException {
         lock.lock();
         try {
-            while(count<3){
-                condQueue.await();
+            while(count!=3){
+                // waiting on the condition backed by same lock 
             }
             printThird.run(); // printThird.run() outputs "third". Do not change or remove this line.
         } finally {
