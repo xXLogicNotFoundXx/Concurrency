@@ -42,4 +42,14 @@ catch (InterruptedException e) {
 ```
 
 ## thread.wait()
-* Unclocks the aquired lock. sleep() can throw InterruptedException.
+* Unclocks the aquired lock. wait() can throw InterruptedException.
+
+
+## Deamon thread.
+t.setDaemon(true):
+* They can not prevent the JVM from exiting when all the user threads finish their execution.
+* JVM terminates itself when all user threads finish their execution
+* If JVM finds running daemon thread, it terminates the thread and after that shutdown itself. JVM does not care whether Daemon thread is running or not.
+* It is an utmost low priority thread.
+
+
