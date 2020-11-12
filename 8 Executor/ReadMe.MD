@@ -6,7 +6,8 @@
 
 ## Solution
 * We need to limit the number of threads being created.
-* We should be able to use same thread for different task (avoiding creating and teardown of threads) 
+* We should be able to use same thread for different task (avoiding creating and teardown of threads).
+* With a limit on the number of the threads that can be created, the application will not be servicing HTTP requests as quickly as they come in, but it will be servicing them as quickly as the system can sustain.
 
 ## Solution : Thread Pool
 * To achieve the solution we have "Thread pools". 
@@ -24,7 +25,7 @@
   
   
 ### Most common is FixedThreadPool
-* Without looking more into it here is the example to create fixed number of threads and using those threads for multile task.
+* Without looking more into Executor framework... here is the example to create fixed number of threads and using those threads for multiple tasks.
 * Note: There are only two threads created : pool-1-thread-1 & pool-1-thread-2 in following example. 
 
 ```
@@ -49,7 +50,7 @@ public static voi main(){
 ....
   ExecutorService pool = Executors.newFixedThreadPool(2);   // we are asking only two threads to be created 
   for(int i=1;i<=5;i++){
-      pool.execute(new Task("Task "+i));         
+      pool.execute(new Task("Task "+i));  // or you can use submit() method       
   }
   pool.shutdown();
 ....
@@ -69,6 +70,9 @@ pool-1-thread-2 Task 4 - END
 pool-1-thread-1 Task 5 - END
 ```
 
+## How Thread Pool works? 
+* In java you don't have to implement your own thread pool. Still it can be useful to know a bit about the implementation of a thread pool anyways.
+* http://tutorials.jenkov.com/java-concurrency/thread-pools.html
 
 * https://www.geeksforgeeks.org/thread-pools-java/?ref=lbp 
 * https://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html
