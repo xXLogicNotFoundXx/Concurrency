@@ -70,10 +70,12 @@ pool-1-thread-2 Task 4 - END
 pool-1-thread-1 Task 5 - END
 ```
 
-## How Thread Pool works? 
+### How Thread Pool works? 
 * In java you don't have to implement your own thread pool. Still it can be useful to know a bit about the implementation of a thread pool anyways.
 * http://tutorials.jenkov.com/java-concurrency/thread-pools.html
 
+
+## READ
 * https://www.geeksforgeeks.org/thread-pools-java/?ref=lbp 
 * https://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html
 * More about executor : https://www.thealgorists.com/Concurrency/EasyParallelization
