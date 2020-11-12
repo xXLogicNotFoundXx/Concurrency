@@ -29,7 +29,7 @@
 * Note: There are only two threads created : pool-1-thread-1 & pool-1-thread-2 in following example. 
 
 ```
-// Print( thread name start - sleep - thread name start
+// Print : <thread-name> START - sleep - <thread-name> END
 class Task implements Runnable{
   String str;
   Task(String str){
@@ -48,11 +48,11 @@ class Task implements Runnable{
 
 public static voi main(){
 ....
-  ExecutorService pool = Executors.newFixedThreadPool(2);   // we are asking only two threads to be created 
+  ExecutorService pool = Executors.newFixedThreadPool(2);   // we are asking maximum two threads to be created.
   for(int i=1;i<=5;i++){
       pool.execute(new Task("Task "+i));  // or you can use submit() method       
   }
-  pool.shutdown();
+  pool.shutdown(); // telling ExecutorService to shutdown all threads
 ....
 }
 
