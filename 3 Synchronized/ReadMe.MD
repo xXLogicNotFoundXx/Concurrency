@@ -1,7 +1,7 @@
 
  
 ## Synchronized Methods
-When a thread invokes a synchronized method, it automatically acquires the intrinsic lock for that method's **object** and releases it when the method returns. 
+When a thread invokes a synchronized method, it automatically acquires the intrinsic lock for that method's **object** and releases it when the method returns. That mean object has be shared between processes. 
 * The lock release occurs even if the return was caused by an uncaught exception.This is useful when more than one threads have an acess to same object.
 * Constructors can not be synchronized.
 * In case of static method, the thread acquires the intrinsic lock for the Class object associated with the class.
