@@ -19,7 +19,7 @@ While the scoping mechanism for synchronized methods and statements makes it muc
 
 With this increased flexibility comes additional responsibility. The absence of block-structured locking removes the automatic release of locks that occurs with synchronized methods and statements. In most cases, the following idiom should be used:
 ```
-     Lock l = ...;
+     Lock l = new ReentrantLock();
      l.lock();
      try {
          // access the resource protected by this lock
@@ -32,7 +32,7 @@ We can use Lock if you want to do something else if we can't acquire a Lock.
 ```
 Example : boolean tryLock() 
 
-      Lock lock = ...;
+      Lock lock = new ReentrantLock();
       if (lock.tryLock()) {
           try {
               // manipulate protected state
