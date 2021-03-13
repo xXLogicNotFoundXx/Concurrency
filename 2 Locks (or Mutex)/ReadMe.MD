@@ -5,6 +5,8 @@ Mutex and Locks are same (Mutex is short form of **Mut**ual **Ex**clusion) - htt
 In Java simple locking mechnism can be used by *synchronized*. 
 The Java programming language provides two basic synchronization idioms: synchronized methods and synchronized statements. 
 Synchronization is built around an internal entity known as the intrinsic lock or monitor lock.
+An intrinsic lock (aka monitor lock) is an implicit internal entity associated with each instance of objects. The intrinsic lock enforces exclusive access to an object's state. 
+The fact that every object has a built-in lock is just a convenience so that you needn't explicitly create lock objects
 
 
 #### java.util.concurrent.locks.Lock Inteface 
