@@ -8,6 +8,8 @@ Synchronization is built around an internal entity known as the intrinsic lock o
 An intrinsic lock (aka monitor lock) is an implicit internal entity associated with each instance of objects. The intrinsic lock enforces exclusive access to an object's state. 
 The fact that every object has a built-in lock is just a convenience so that you needn't explicitly create lock objects
 
+So a monitor and a lock can not be compared for differences, rather they are complementary to each other. Every object in Java is associated with a monitor which a thread can lock or unlock.
+
 
 #### java.util.concurrent.locks.Lock Inteface 
 #### READ : https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html
