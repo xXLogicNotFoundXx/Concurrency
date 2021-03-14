@@ -44,7 +44,7 @@ public class BlockingQueue<T> {
             while (queue.isEmpty()) {
                 empty.await();
             }
-            T item = queue.remove();
+            T item = queue.poll();
             full.signal();
             return item;
         } finally {
