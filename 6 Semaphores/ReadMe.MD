@@ -13,6 +13,12 @@ Semaphore(int num, boolean how)
 
 // Your semaphore initially has 0 permits, in which case permits must be released before they may be acquired.
 new Semaphore(0); 
+
+Semaphore marbel = bew Semaphore(1,true);
+marbel.aquire();
+//do something
+marbel.release();
+
 ```
 Here, num specifies the initial permit count. Thus, it specifies the number of threads that can access a shared resource at any one time.\
 If it is one, then only one thread can access the resource at any one time. 
